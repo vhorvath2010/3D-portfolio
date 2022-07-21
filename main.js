@@ -20,7 +20,7 @@ const controls = new OrbitControls(cam, renderer.domElement);
 controls.maxDistance = 50;
 controls.zoomSpeed = 1.5;
 
-const ambientLight = new THREE.AmbientLight(0xC4C6E7)
+const ambientLight = new THREE.AmbientLight(0xC6DDF0)
 scene.add(ambientLight);
 
 function addStar() {
