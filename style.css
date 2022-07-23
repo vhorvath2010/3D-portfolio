@@ -30,6 +30,22 @@ p {
   text-align: left;
 }
 
+.center {
+  text-align: center;
+}
+
 a {
   color: #C6DDF0;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2E4052;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5E7082;
 }

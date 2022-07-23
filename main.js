@@ -13,12 +13,18 @@ const renderer = new THREE.WebGLRenderer({
 // Setup renderer to window sizes
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-cam.position.setZ(1);
+let baseZ = 1;
+cam.position.setZ(baseZ);
 
 // Overwrite OrbitControls zoom
 const controls = new OrbitControls(cam, renderer.domElement);
 controls.maxDistance = 50;
 controls.zoomSpeed = 1.5;
+
+document.body.onscroll = () => {
+  let toZoom = document.body.getBoundingClientRect().top;
+  cam.position.setZ(baseZ * Math.abs(toZoom) / 10);
+}
 
 const ambientLight = new THREE.AmbientLight(0xC6DDF0)
 scene.add(ambientLight);
