@@ -22,7 +22,7 @@ controls.maxDistance = 50;
 controls.zoomSpeed = 1.5;
 
 document.body.onscroll = () => {
-  let toZoom = document.body.getBoundingClientRect().top;
+  let toZoom = document.body.getBoundingClientRect().top - 25;
   cam.position.setZ(baseZ * Math.abs(toZoom) / 10);
 }
 
