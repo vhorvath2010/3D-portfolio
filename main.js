@@ -20,8 +20,19 @@ cam.position.setZ(baseZ);
 const controls = new OrbitControls(cam, renderer.domElement);
 controls.maxDistance = 50;
 controls.zoomSpeed = 1.5;
+controls.autoRotate = true;
+controls.autoRotateSpeed = .5;
 
+// Stop rotation during scroll
+var rotationCooldown = null;
 document.body.onscroll = () => {
+  controls.autoRotate = false;
+  if (rotationCooldown != null) {
+    clearTimeout(rotationCooldown);
+  }
+  rotationCooldown = setTimeout(() => {
+    controls.autoRotate = true;
+  }, 250);
   let toZoom = document.body.getBoundingClientRect().top - 25;
   cam.position.setZ(baseZ * Math.abs(toZoom) / 10);
 }
